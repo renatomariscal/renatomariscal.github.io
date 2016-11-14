@@ -27113,6 +27113,17 @@ var All = (function () {
         this.elements.push(new Ingredient(this, "Canis Root!Damage Stamina!Fortify One-Handed!Fortify Marksman!Paralysis"));
         this.elements.push(new Ingredient(this, "Chaurus Eggs!Weakness to Poison!Fortify Stamina!Damage Magicka!Invisibility"));
         this.elements.push(new Ingredient(this, "Namira's Rot!Damage Magicka!Fortify Lockpicking!Fear!Regenerate Health"));
+        this.elements.sort(function (a, b) {
+            var la = a.name.toLowerCase();
+            var lb = b.name.toLowerCase();
+            if (la > lb) {
+                return 1;
+            }
+            if (lb > la) {
+                return -1;
+            }
+            return 0;
+        });
     };
     All = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Injectable */])(), 
