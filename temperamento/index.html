@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Form</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .bloco {
+            aspect-ratio: 1/1;
+            padding-top: 50%;
+            font-size: xx-large;
+        }
+
+        .titulo {
+            padding-top: 100%;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <div class="container mt-5">
+            <h2>Questionário</h2>
+            <div class="row">
+                <label class="col-12 mt-5">Quando você está em grupo e surge uma pergunta polêmica, como você reage?</label>
+            </div>
+            <div class="row">
+                <input type="range" class="col-12 parte-1" min="0" max="10" , step="0.1" style="padding: 0;">
+            </div>
+            <div class="row">
+                <div class="col-6 text-wrap border rounded-pill">Já analiso rapidamente, e dou uma opinião também a respeito do assunto. Externalizo com facilidade</div>
+                <div class="col-6 text-wrap border rounded-pill">Fico analisando, tentando compreender, mas quase sempre saio sem dar meu parecer, ou só dou minha opinião se alguém perguntar.</div>
+            </div>
+
+
+            <div class="row">
+                <label class="col-12 mt-5">Quando surge um projeto novo, como você reage?</label>
+            </div>
+            <div class="row">
+                <input type="range" class="col-12 parte-1" min="0" max="10" , step="0.1" style="padding: 0;">
+            </div>
+            <div class="row">
+                <div class="col-6 text-wrap border rounded-pill">Se empolga com a novidade ou pelo fato de ser um novo desafio.</div>
+                <div class="col-6 text-wrap border rounded-pill">Não se empolga muito, ou já olha com medo, se vai conseguir realizar o projeto ou não.</div>
+            </div>
+
+
+            <div class="row">
+                <label class="col-12 mt-5">Pra onde você sente que usa energia mental é mais direcionada?</label>
+            </div>
+            <div class="row">
+                <input type="range" class="col-12 parte-1" min="0" max="10" , step="0.1" style="padding: 0;">
+            </div>
+            <div class="row">
+                <div class="col-6 text-wrap border rounded-pill">Você é uma pessoa mais voltada para o mundo exterior, para a ação, até se precpita agindo sem refletir muito.</div>
+                <div class="col-6 text-wrap border rounded-pill">Mundo interior, foco na reflexão, sinto que preciso compreender para externalizar, no geral sou bem cauteloso.</div>
+            </div>
+
+            <div class="row">
+                <label class="col-12 mt-5">Um colega de trabalho está tendo atitudes que comprometem toda a equipe, mas você sabe que na vida pessoal ele está passando por problemas, o que você defende?</label>
+            </div>
+            <div class="row">
+                <input type="range" class="col-12 parte-2" min="0" max="10" , step="0.1" style="padding: 0;">
+            </div>
+            <div class="row">
+                <div class="col-6 text-wrap border rounded-pill">Eu conversaria com ele, ou esperaria que o coordenador conversasse com ele. Ele precisa saber separar, a vida pessoal não pode afetar todo o grupo.</div>
+                <div class="col-6 text-wrap border rounded-pill">Ficaria condoído com a situação dele, nessas situações precisamos flexibilizar as regras, e entender o sentimento das pessoas.</div>
+            </div>
+
+            <div class="row">
+                <label class="col-12 mt-5">Quando alguém é ingrato com você, como você reage?</label>
+            </div>
+            <div class="row">
+                <input type="range" class="col-12 parte-2" min="0" max="10" , step="0.1" style="padding: 0;">
+            </div>
+            <div class="row">
+                <div class="col-6 text-wrap border rounded-pill">Não relevo com facilidade e me causa algum incomodo por algum tempo.</div>
+                <div class="col-6 text-wrap border rounded-pill">Fico chateado no momento, mas com o tempo já não sinto incomodo.</div>
+            </div>
+
+            <div class="row">
+                <label class="col-12 mt-5">Alguém combina algo com você, mas duas semanas depois a pessoa quer mudar o combinado, gerou expectativas em você:</label>
+            </div>
+            <div class="row">
+                <input type="range" class="col-12 parte-2" min="0" max="10" , step="0.1" style="padding: 0;">
+            </div>
+            <div class="row">
+                <div class="col-6 text-wrap border rounded-pill">Não curto. Se falou que era de determninada forma, me sinto desrespeitado quando mudam.</div>
+                <div class="col-6 text-wrap border rounded-pill">Não ligo muito, com boa vontade e compreensão tudo se ajeita.</div>
+            </div>
+
+
+            <div class="row">
+                <button id="mostrar" class="btn btn-primary mt-5 col-12">Mostrar resultado</button>
+            </div>
+        </div>
+    </form>
+
+    <div id="result" class="mt-5 container" style="display: none;">
+        <div class="row justify-content-md-center">
+            <table class="table table-bordered col-10" style="text-align: center;">
+                <tr>
+                    <td></td>
+                    <td class="titulo">Seco</td>
+                    <td class="titulo">Umido</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="titulo align-middle">Quente</div>
+                    </td>
+                    <td id="colerico" style="padding: 0;" width="40%">
+                        <div class="bloco align-middle" style="background-color: rgb(233, 179, 179);">colérico</div>
+                    </td>
+                    <td id="sanguinio" style="padding: 0;" width="40%">
+                        <div class="bloco align-middle" style="background-color: rgb(230, 230, 128);">sanguinio</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="titulo align-middle">Frio</div>
+                    </td>
+                    <td id="melancolico" style="padding: 0;" width="40%">
+                        <div class="bloco align-middle" style="background-color: rgb(159, 220, 159);">melancolico</div>
+                    </td>
+                    <td id="flematico" style="padding: 0;" width="40%">
+                        <div class="bloco align-middle" style="background-color: rgb(177, 177, 236);">Flemático</div>
+                    </td>
+                </tr>
+            </table>
+            <div id="linhaQuenteFrio" style="display: block; position: absolute; background-color: black; height: 10px;"></div>
+            <div id="linhaSecoUmido" style="display: block; position: absolute; background-color: black; width: 10px;"></div>
+        </div>
+        <div class="row">
+            <button id='btnRefazer' class="btn btn-primary mt-5 col-12">Refazer o teste</button>
+        </div>
+    </div>
+
+    <script>
+        function gid(id) {
+            return document.getElementById(id);
+        }
+
+
+        document.getElementById('mostrar').addEventListener('click', function (event) {
+            event.preventDefault();
+            gid('result').style.display = 'block';
+            gid('form').style.display = 'none';
+
+            setTimeout(() => {
+                function resultado(seletor) {
+                    let result = 0;
+                    let max = 0;
+                    const sliders = document.querySelectorAll(seletor);
+
+                    sliders.forEach(function (slider) {
+                        result += parseFloat(slider.value);
+                        max += parseFloat(slider.max)
+                    });
+
+                    return result / max;
+                }
+
+                const quenteFrio = resultado('.parte-1');
+                const secoUmido = resultado('.parte-2');
+
+                console.log({ quenteFrio, secoUmido })
+
+                function offset(element, property) {
+                    if (!element) return 0;
+                    return element['offset' + property] + offset(element.offsetParent, property);
+                }
+
+                const colerico = gid('colerico');
+                const sanguinio = gid('sanguinio');
+                const melancolico = gid('melancolico');
+                const flematico = gid('flematico');
+
+                const linhaQuenteFrio = gid('linhaQuenteFrio');
+                const linhaSecoUmido = gid('linhaSecoUmido');
+
+                const top = offset(colerico, 'Top');
+                const left = offset(colerico, 'Left');
+                const width = (sanguinio.offsetWidth + offset(sanguinio, 'Left') - offset(colerico, 'Left'));
+                const height = (melancolico.offsetHeight + offset(melancolico, 'Top') - offset(colerico, 'Top'));
+                const offsetMiddleQuenteFrioTop = -linhaQuenteFrio.offsetHeight / 2;
+                const offsetMiddleSecoUmidoLeft = -linhaSecoUmido.offsetWidth / 2;
+                const quenteFrioTop = top + (height * quenteFrio) + offsetMiddleQuenteFrioTop;
+                const secoUmidoLeft = left + (width * secoUmido) + offsetMiddleSecoUmidoLeft;
+
+                console.log({
+                    top
+                    , left
+                    , width
+                    , height
+                    , offsetMiddleQuenteFrioTop
+                    , offsetMiddleSecoUmidoLeft
+                    , quenteFrioTop
+                    , secoUmidoLeft
+                })
+
+                linhaQuenteFrio.style.left = left + 'px';
+                linhaQuenteFrio.style.top = quenteFrioTop + 'px';
+                linhaQuenteFrio.style.width = width + 'px';
+
+                linhaSecoUmido.style.top = top + 'px';
+                linhaSecoUmido.style.left = secoUmidoLeft + 'px';
+                linhaSecoUmido.style.height = height + 'px';
+            }, 1);
+        });
+
+        document.getElementById('btnRefazer').addEventListener('click', function (event) {
+            event.preventDefault();
+            gid('result').style.display = 'none';
+            gid('form').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
