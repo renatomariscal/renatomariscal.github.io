@@ -18,9 +18,14 @@
             font-size: large;
         }
 
-        .titulo {
-            padding-top: 100%;
+        .tituloTopo {
             font-size: large;
+        }
+
+        .tituloEsquerda {
+            font-size: large;
+            writing-mode: tb-rl;
+            transform: rotate(-180deg);
         }
     </style>
 </head>
@@ -36,8 +41,8 @@
                 <input type="range" class="col-12 parte-1" min="0" max="10" , step="0.1" style="padding: 0;">
             </div>
             <div class="row">
-                <div class="col-6 text-wrap border rounded-pill">Já analiso rapidamente, e dou uma opinião também a respeito do assunto. Externalizo com facilidade</div>
-                <div class="col-6 text-wrap border rounded-pill">Fico analisando, tentando compreender, mas quase sempre saio sem dar meu parecer, ou só dou minha opinião se alguém perguntar.</div>
+                <div class="col-6 text-wrap border rounded">Já analiso rapidamente, e dou uma opinião também a respeito do assunto. Externalizo com facilidade</div>
+                <div class="col-6 text-wrap border rounded">Fico analisando, tentando compreender, mas quase sempre saio sem dar meu parecer, ou só dou minha opinião se alguém perguntar.</div>
             </div>
 
 
@@ -48,8 +53,8 @@
                 <input type="range" class="col-12 parte-1" min="0" max="10" , step="0.1" style="padding: 0;">
             </div>
             <div class="row">
-                <div class="col-6 text-wrap border rounded-pill">Se empolga com a novidade ou pelo fato de ser um novo desafio.</div>
-                <div class="col-6 text-wrap border rounded-pill">Não se empolga muito, ou já olha com medo, se vai conseguir realizar o projeto ou não.</div>
+                <div class="col-6 text-wrap border rounded">Se empolga com a novidade ou pelo fato de ser um novo desafio.</div>
+                <div class="col-6 text-wrap border rounded">Não se empolga muito, ou já olha com medo, se vai conseguir realizar o projeto ou não.</div>
             </div>
 
 
@@ -60,8 +65,8 @@
                 <input type="range" class="col-12 parte-1" min="0" max="10" , step="0.1" style="padding: 0;">
             </div>
             <div class="row">
-                <div class="col-6 text-wrap border rounded-pill">Você é uma pessoa mais voltada para o mundo exterior, para a ação, até se precpita agindo sem refletir muito.</div>
-                <div class="col-6 text-wrap border rounded-pill">Mundo interior, foco na reflexão, sinto que preciso compreender para externalizar, no geral sou bem cauteloso.</div>
+                <div class="col-6 text-wrap border rounded">Você é uma pessoa mais voltada para o mundo exterior, para a ação, até se precpita agindo sem refletir muito.</div>
+                <div class="col-6 text-wrap border rounded">Mundo interior, foco na reflexão, sinto que preciso compreender para externalizar, no geral sou bem cauteloso.</div>
             </div>
 
             <div class="row">
@@ -71,8 +76,8 @@
                 <input type="range" class="col-12 parte-2" min="0" max="10" , step="0.1" style="padding: 0;">
             </div>
             <div class="row">
-                <div class="col-6 text-wrap border rounded-pill">Eu conversaria com ele, ou esperaria que o coordenador conversasse com ele. Ele precisa saber separar, a vida pessoal não pode afetar todo o grupo.</div>
-                <div class="col-6 text-wrap border rounded-pill">Ficaria condoído com a situação dele, nessas situações precisamos flexibilizar as regras, e entender o sentimento das pessoas.</div>
+                <div class="col-6 text-wrap border rounded">Eu conversaria com ele, ou esperaria que o coordenador conversasse com ele. Ele precisa saber separar, a vida pessoal não pode afetar todo o grupo.</div>
+                <div class="col-6 text-wrap border rounded">Ficaria condoído com a situação dele, nessas situações precisamos flexibilizar as regras, e entender o sentimento das pessoas.</div>
             </div>
 
             <div class="row">
@@ -82,8 +87,8 @@
                 <input type="range" class="col-12 parte-2" min="0" max="10" , step="0.1" style="padding: 0;">
             </div>
             <div class="row">
-                <div class="col-6 text-wrap border rounded-pill">Não relevo com facilidade e me causa algum incomodo por algum tempo.</div>
-                <div class="col-6 text-wrap border rounded-pill">Fico chateado no momento, mas com o tempo já não sinto incomodo.</div>
+                <div class="col-6 text-wrap border rounded">Não relevo com facilidade e me causa algum incomodo por algum tempo.</div>
+                <div class="col-6 text-wrap border rounded">Fico chateado no momento, mas com o tempo já não sinto incomodo.</div>
             </div>
 
             <div class="row">
@@ -93,8 +98,8 @@
                 <input type="range" class="col-12 parte-2" min="0" max="10" , step="0.1" style="padding: 0;">
             </div>
             <div class="row">
-                <div class="col-6 text-wrap border rounded-pill">Não curto. Se falou que era de determninada forma, me sinto desrespeitado quando mudam.</div>
-                <div class="col-6 text-wrap border rounded-pill">Não ligo muito, com boa vontade e compreensão tudo se ajeita.</div>
+                <div class="col-6 text-wrap border rounded">Não curto. Se falou que era de determninada forma, me sinto desrespeitado quando mudam.</div>
+                <div class="col-6 text-wrap border rounded">Não ligo muito, com boa vontade e compreensão tudo se ajeita.</div>
             </div>
 
 
@@ -109,12 +114,12 @@
             <table class="table table-bordered col-10" style="text-align: center;">
                 <tr>
                     <td></td>
-                    <td class="titulo">Seco</td>
-                    <td class="titulo">Umido</td>
+                    <td class="tituloTopo">Seco</td>
+                    <td class="tituloTopo">Umido</td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="titulo align-middle">Quente</div>
+                        <div class="tituloEsquerda align-middle">Quente</div>
                     </td>
                     <td id="colerico" style="padding: 0;" width="40%">
                         <div class="bloco align-middle" style="background-color: rgb(233, 179, 179);">colérico</div>
@@ -125,7 +130,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="titulo align-middle">Frio</div>
+                        <div class="tituloEsquerda align-middle">Frio</div>
                     </td>
                     <td id="melancolico" style="padding: 0;" width="40%">
                         <div class="bloco align-middle" style="background-color: rgb(159, 220, 159);">melancolico</div>
